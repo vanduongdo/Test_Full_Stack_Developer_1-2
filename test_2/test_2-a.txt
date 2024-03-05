@@ -1,0 +1,10 @@
+CUSTOMER : id, name, email, phone_number, address
+MAKER : id, name
+PRODUCT : id, name, description, price, image_url, maker_id --> MAKER : id
+ORDER : id, customer_id --> CUSTOMER : id, order_date, total_price, status
+ORDER_DETAIL : id, order_id --> ORDER : id, product_id --> PRODUCT : id, quantity, price
+
+Mối quan hệ giữa Products và Makers là một mối quan hệ nhiều-một. Một nhà sản xuất có thể cung cấp nhiều sản phẩm, nhưng mỗi sản phẩm chỉ thuộc về một nhà sản xuất.
+Mối quan hệ giữa Products và Categories là một mối quan hệ nhiều-một. Một danh mục có thể chứa nhiều sản phẩm, nhưng mỗi sản phẩm chỉ thuộc về một danh mục.
+Mối quan hệ giữa Orders và Customers là một mối quan hệ nhiều-một. Một khách hàng có thể đặt nhiều đơn hàng, nhưng mỗi đơn hàng chỉ được đặt bởi một khách hàng.
+Mối quan hệ giữa Orders và Products là một mối quan hệ nhiều-nhiều. Một đơn hàng có thể bao gồm nhiều sản phẩm, và một sản phẩm có thể được bán trong nhiều đơn hàng. Thông qua bảng trung gian OrderDetails
